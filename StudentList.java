@@ -5,7 +5,7 @@ public class StudentList {
 	//fgfjfgijfigjfi
 	public static void main(String[] args) {
 
-//		Check arguments
+		System.out.println("We are git practicing");
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
