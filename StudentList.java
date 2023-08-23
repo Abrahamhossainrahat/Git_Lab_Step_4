@@ -2,6 +2,7 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 public class StudentList {
+	//fgfjfgijfigjfi
 	public static void main(String[] args) {
 
 //		Check arguments
@@ -13,7 +14,9 @@ public class StudentList {
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
 			String i[] = r.split(",");			
-			for(String j : i) { System.out.println(j); }
+			for(String j : i) {
+				System.out.println(j);
+			}
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");
 		}
@@ -25,10 +28,10 @@ public class StudentList {
 					new InputStreamReader(
 							new FileInputStream("students.txt"))); 
 			String r = s.readLine();
-			System.out.println(r);
+			//System.out.println(r);
 			String i[] = r.split(",");	
 			Random x = new Random();
-				int y = x.nextInt();
+				int y = x.nextInt(i.length);
 					System.out.println(i[y]);
 			} catch (Exception e){} 
 			System.out.println("Data Loaded.");			
