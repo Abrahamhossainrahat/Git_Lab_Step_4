@@ -2,18 +2,38 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 public class StudentList {
-	//fgfjfgijfigjfi
+	public static String r = "";
+	public static String i[];
+	public static void reader(){
+		try{
+			BufferedReader s = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream("students.txt")));
+			r = s.readLine();
+			i = r.split(",");
+
+		}catch (Exception e){}
+	}
+	public static void writer(String toWrite){
+		try{
+			BufferedWriter s = new BufferedWriter(
+					new FileWriter("students.txt", true));
+			s.write(toWrite);
+			s.close();
+
+		}catch (Exception e){}
+	}
 	public static void main(String[] args) {
 
-		System.out.println("We are git practicing");
 		if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
-			BufferedReader s = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-			String r = s.readLine();
-			String i[] = r.split(",");			
+//			BufferedReader s = new BufferedReader(
+//					new InputStreamReader(
+//							new FileInputStream("students.txt")));
+//			String r = s.readLine();
+//			String i[] = r.split(",");
+			reader();
 			for(String j : i) {
 				System.out.println(j);
 			}
@@ -24,12 +44,13 @@ public class StudentList {
 		{
 			System.out.println("Loading data ...");			
 			try {
-			BufferedReader s = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-			String r = s.readLine();
-			//System.out.println(r);
-			String i[] = r.split(",");	
+//			BufferedReader s = new BufferedReader(
+//					new InputStreamReader(
+//							new FileInputStream("students.txt")));
+//			String r = s.readLine();
+//			//System.out.println(r);
+//			String i[] = r.split(",");
+			reader();
 			Random x = new Random();
 				int y = x.nextInt(i.length);
 					System.out.println(i[y]);
@@ -39,15 +60,15 @@ public class StudentList {
 		else if(args[0].contains("+")){
 			System.out.println("Loading data ...");			
 			try {
-			BufferedWriter s = new BufferedWriter(
-					new FileWriter("students.txt", true));
+//			BufferedWriter s = new BufferedWriter(
+//					new FileWriter("students.txt", true));
 			String t = args[0].substring(1);
 	        Date d = new Date();
 	        String df = "dd/mm/yyyy-hh:mm:ss a";
 	        DateFormat dateFormat = new SimpleDateFormat(df);
 	        String fd= dateFormat.format(d);
-			s.write(", "+t+"\nList last updated on "+fd);
-			s.close();
+			writer(", "+t+"\nList last updated on "+fd);
+			//s.close();
 			} catch (Exception e){}
 							
 			System.out.println("Data Loaded.");	
@@ -56,11 +77,12 @@ public class StudentList {
 		{
 			System.out.println("Loading data ...");			
 			try {
-			BufferedReader s = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-			String r = s.readLine();
-			String i[] = r.split(",");	
+//			BufferedReader s = new BufferedReader(
+//					new InputStreamReader(
+//							new FileInputStream("students.txt")));
+//			String r = s.readLine();
+//			String i[] = r.split(",");
+				reader();
 			boolean done = false;
 			String t = args[0].substring(1);
 			for(int idx = 0; idx<i.length && !done; idx++) {
@@ -76,11 +98,12 @@ public class StudentList {
 		{
 			System.out.println("Loading data ...");			
 			try {
-			BufferedReader s = new BufferedReader(
-					new InputStreamReader(
-							new FileInputStream("students.txt"))); 
-			String D = s.readLine();
-			char a[] = D.toCharArray();			
+//			BufferedReader s = new BufferedReader(
+//					new InputStreamReader(
+//							new FileInputStream("students.txt")));
+//			String D = s.readLine();
+				reader();
+			char a[] = r.toCharArray();
 			boolean in_word = false;
 			int count=0;
 			for(char c:a) {
